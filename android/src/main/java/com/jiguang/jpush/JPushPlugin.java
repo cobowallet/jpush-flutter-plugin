@@ -141,6 +141,11 @@ public class JPushPlugin implements MethodCallHandler {
         boolean debug = (boolean)map.get("debug");
         JPushInterface.setDebugMode(debug);
 
+        // 然后在初始化极光sdk（JPushInterface.init(this);）的上面调用如下方法
+        JCoreInterface.setWakeEnable(registrar.context(), false);
+        // 如果需要关闭地理位置。（不需要关闭可以不操作）
+        JPushInterface.setLbsEnable(this, false);
+
         JPushInterface.init(registrar.context());     		// 初始化 JPush
         
         String channel = (String)map.get("channel");
