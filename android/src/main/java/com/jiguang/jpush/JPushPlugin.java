@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import cn.jiguang.api.JCoreInterface;
 import cn.jpush.android.api.JPushInterface;
 import io.flutter.view.FlutterNativeView;
 
@@ -144,7 +145,7 @@ public class JPushPlugin implements MethodCallHandler {
         // 然后在初始化极光sdk（JPushInterface.init(this);）的上面调用如下方法
         JCoreInterface.setWakeEnable(registrar.context(), false);
         // 如果需要关闭地理位置。（不需要关闭可以不操作）
-        JPushInterface.setLbsEnable(this, false);
+        JPushInterface.setLbsEnable(registrar.context(), false);
 
         JPushInterface.init(registrar.context());     		// 初始化 JPush
         
