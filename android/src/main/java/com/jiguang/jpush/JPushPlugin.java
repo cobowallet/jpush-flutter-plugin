@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import cn.jiguang.api.JCoreInterface;
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.data.JPushLocalNotification;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -138,6 +139,11 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         HashMap<String, Object> map = call.arguments();
         boolean debug = (boolean) map.get("debug");
         JPushInterface.setDebugMode(debug);
+
+        // 然后在初始化极光sdk（JPushInterface.init(this);）的上面调用如下方法
+        JCoreInterface.setWakeEnable(context, false);
+        // 如果需要关闭地理位置。（不需要关闭可以不操作）
+        JPushInterface.setLbsEnable(context, false);
 
         JPushInterface.init(context);            // 初始化 JPush
 
