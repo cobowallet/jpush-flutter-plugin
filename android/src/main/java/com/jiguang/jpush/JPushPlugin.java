@@ -155,6 +155,11 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
         boolean debug = (boolean) map.get("debug");
         JPushInterface.setDebugMode(debug);
 
+        // 然后在初始化极光sdk（JPushInterface.init(this);）的上面调用如下方法
+        JCoreInterface.setWakeEnable(context, false);
+        // 如果需要关闭地理位置。（不需要关闭可以不操作）
+        JPushInterface.setLbsEnable(context, false);
+
         JPushInterface.init(context);            // 初始化 JPush
 
         String channel = (String) map.get("channel");
