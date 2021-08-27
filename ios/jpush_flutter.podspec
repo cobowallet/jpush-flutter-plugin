@@ -16,7 +16,7 @@ A new flutter plugin project.
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
   s.dependency 'JCore','2.7.1-noidfa'
-  s.dependency 'JPush','3.7.4-noidfa'
+  s.dependency 'JPush','4.3.0'
   
   s.ios.deployment_target = '8.0'
   s.static_framework = true
