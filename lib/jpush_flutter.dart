@@ -267,7 +267,7 @@ class JPush {
   /// 清空通知栏上某个通知
   /// @param notificationId 通知 id，即：LocalNotification id
   ///
-  Future<void> clearNotification({int notificationId = 0}) async {
+  Future<void> clearNotification({required int notificationId}) async {
     print(flutter_log + 'clearNotification:');
     await _channel.invokeListMethod('clearNotification', notificationId);
   }
@@ -355,26 +355,27 @@ class NotificationSettingsIOS {
 /// @property {string} [subtitle] - 子标题
 class LocalNotification {
   final int? buildId; //?
-  final int? id;
-  final String? title;
-  final String? content;
+  final int id;
+  final String title;
+  final String content;
   final Map<String, String>? extra; //?
-  final DateTime? fireTime;
-  final int? badge; //?
+  final DateTime fireTime;
+  final int badge; //?
   final String? soundName; //?
   final String? subtitle; //?
 
-  const LocalNotification(
-      {@required this.id,
-      @required this.title,
-      @required this.content,
-      @required this.fireTime,
-      this.buildId,
-      this.extra,
-      this.badge = 0,
-      this.soundName,
-      this.subtitle})
-      : assert(id != null),
+  const LocalNotification({
+    required this.id,
+    required this.title,
+    required this.content,
+    required this.fireTime,
+    this.buildId,
+    this.extra,
+    this.badge = 0,
+    this.soundName,
+    this.subtitle
+  }):
+        assert(id != null),
         assert(title != null),
         assert(content != null),
         assert(fireTime != null);
