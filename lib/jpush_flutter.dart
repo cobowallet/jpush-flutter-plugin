@@ -19,7 +19,7 @@ class JPush {
       : _channel = channel,
         _platform = platform {
     _channel.setMethodCallHandler(_handleMethod);
-  };
+  }
 
   static late final JPush _instance = JPush.private(
     const MethodChannel('jpush'),
@@ -385,7 +385,7 @@ class LocalNotification {
       'id': id,
       'title': title,
       'content': content,
-      'fireTime': fireTime?.millisecondsSinceEpoch,
+      'fireTime': fireTime.millisecondsSinceEpoch,
       'buildId': buildId,
       'extra': extra,
       'badge': badge,
