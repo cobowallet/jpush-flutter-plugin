@@ -74,7 +74,7 @@ class JPush {
     _onReceiveNotificationAuthorization = onReceiveNotificationAuthorization;
   }
 
-  Future<dynamic> _handleMethod(MethodCall call) async {
+  Future<void> _handleMethod(MethodCall call) async {
     print(flutter_log + '_handleMethod:');
 
     switch (call.method) {
@@ -127,10 +127,10 @@ class JPush {
   /// @param {Function} success = ({'tags':[String]}) => {  }
   /// @param {Function} fail = ({'errorCode':int}) => {  }
   ///
-  Future<Map<dynamic, dynamic>> setTags(List<String> tags) async {
+  Future<Map<dynamic, dynamic>?> setTags(List<String> tags) async {
     print(flutter_log + 'setTags:');
 
-    final Map<dynamic, dynamic> result =
+    final Map<dynamic, dynamic>? result =
         await _channel.invokeMethod('setTags', tags);
     return result;
   }
@@ -141,10 +141,10 @@ class JPush {
   /// @param {Function} success = ({'tags':[String]}) => {  }
   /// @param {Function} fail = ({'errorCode':int}) => {  }
   ///
-  Future<Map<dynamic, dynamic>> cleanTags() async {
+  Future<Map<dynamic, dynamic>?> cleanTags() async {
     print(flutter_log + 'cleanTags:');
 
-    final Map<dynamic, dynamic> result =
+    final Map<dynamic, dynamic>? result =
         await _channel.invokeMethod('cleanTags');
     return result;
   }
@@ -156,10 +156,10 @@ class JPush {
   /// @param {Function} success = ({'tags':[String]}) => {  }
   /// @param {Function} fail = ({'errorCode':int}) => {  }
   ///
-  Future<Map<dynamic, dynamic>> addTags(List<String> tags) async {
+  Future<Map<dynamic, dynamic>?> addTags(List<String> tags) async {
     print(flutter_log + 'addTags:');
 
-    final Map<dynamic, dynamic> result =
+    final Map<dynamic, dynamic>? result =
         await _channel.invokeMethod('addTags', tags);
     return result;
   }
@@ -171,10 +171,10 @@ class JPush {
   /// @param {Function} success = ({'tags':[String]}) => {  }
   /// @param {Function} fail = ({'errorCode':int}) => {  }
   ///
-  Future<Map<dynamic, dynamic>> deleteTags(List<String> tags) async {
+  Future<Map<dynamic, dynamic>?> deleteTags(List<String> tags) async {
     print(flutter_log + 'deleteTags:');
 
-    final Map<dynamic, dynamic> result =
+    final Map<dynamic, dynamic>? result =
         await _channel.invokeMethod('deleteTags', tags);
     return result;
   }
@@ -185,10 +185,10 @@ class JPush {
   /// @param {Function} success = ({'tags':[String]}) => {  }
   /// @param {Function} fail = ({'errorCode':int}) => {  }
   ///
-  Future<Map<dynamic, dynamic>> getAllTags() async {
+  Future<Map<dynamic, dynamic>?> getAllTags() async {
     print(flutter_log + 'getAllTags:');
 
-    final Map<dynamic, dynamic> result =
+    final Map<dynamic, dynamic>? result =
         await _channel.invokeMethod('getAllTags');
     return result;
   }
@@ -201,10 +201,10 @@ class JPush {
   /// @param {Function} success = ({'alias':String}) => {  }
   /// @param {Function} fail = ({'errorCode':int}) => {  }
   ///
-  Future<Map<dynamic, dynamic>> setAlias(String alias) async {
+  Future<Map<dynamic, dynamic>?> setAlias(String alias) async {
     print(flutter_log + 'setAlias:');
 
-    final Map<dynamic, dynamic> result =
+    final Map<dynamic, dynamic>? result =
         await _channel.invokeMethod('setAlias', alias);
     return result;
   }
@@ -215,10 +215,10 @@ class JPush {
   /// @param {Function} success = ({'alias':String}) => {  }
   /// @param {Function} fail = ({'errorCode':int}) => {  }
   ///
-  Future<Map<dynamic, dynamic>> deleteAlias() async {
+  Future<Map<dynamic, dynamic>?> deleteAlias() async {
     print(flutter_log + 'deleteAlias:');
 
-    final Map<dynamic, dynamic> result =
+    final Map<dynamic, dynamic>? result =
         await _channel.invokeMethod('deleteAlias');
     return result;
   }
@@ -279,10 +279,10 @@ class JPush {
   /// 如果不是通过点击推送启动应用，比如点击应用 icon 直接启动应用，notification 会返回 @{}。
   /// @param {Function} callback = (Object) => {}
   ///
-  Future<Map<dynamic, dynamic>> getLaunchAppNotification() async {
+  Future<Map<dynamic, dynamic>?> getLaunchAppNotification() async {
     print(flutter_log + 'getLaunchAppNotification:');
 
-    final Map<dynamic, dynamic> result =
+    final Map<dynamic, dynamic>? result =
         await _channel.invokeMethod('getLaunchAppNotification');
     return result;
   }

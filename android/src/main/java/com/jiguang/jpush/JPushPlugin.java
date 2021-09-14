@@ -121,6 +121,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
     private void setWakeEnable(MethodCall call, Result result) {
         HashMap<String, Object> map = call.arguments();
         if (map == null) {
+            result.success(false);
             return;
         }
         Boolean enable = (Boolean) map.get("enable");
@@ -306,6 +307,7 @@ public class JPushPlugin implements FlutterPlugin, MethodCallHandler {
 
         if (context == null) {
             Log.d(TAG, "register context is nil.");
+            result.success("");
             return;
         }
 
